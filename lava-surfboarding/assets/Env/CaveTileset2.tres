@@ -1,0 +1,39 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://do521pne6rtm2"]
+
+[ext_resource type="Texture2D" uid="uid://b3il85vfh2qmp" path="res://assets/Env/env_sprite_sheet.png" id="1_57nop"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bswqj"]
+texture = ExtResource("1_57nop")
+texture_region_size = Vector2i(13, 13)
+0:0/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+0:3/0 = 0
+1:0/animation_columns = 5
+1:0/animation_speed = 1.8
+1:0/animation_frame_0/duration = 1.0
+1:0/animation_frame_1/duration = 1.0
+1:0/animation_frame_2/duration = 1.0
+1:0/animation_frame_3/duration = 1.0
+1:0/animation_frame_4/duration = 1.0
+1:0/0 = 0
+1:1/animation_speed = 1.8
+1:1/animation_frame_0/duration = 1.0
+1:1/animation_frame_1/duration = 1.0
+1:1/animation_frame_2/duration = 1.0
+1:1/animation_frame_3/duration = 1.0
+1:1/animation_frame_4/duration = 1.0
+1:1/0 = 0
+1:2/0 = 0
+1:3/0 = 0
+0:4/0 = 0
+0:5/0 = 0
+0:6/0 = 0
+0:7/0 = 0
+1:6/0 = 0
+1:7/0 = 0
+9:0/0 = 0
+
+[resource]
+tile_size = Vector2i(13, 13)
+sources/0 = SubResource("TileSetAtlasSource_bswqj")

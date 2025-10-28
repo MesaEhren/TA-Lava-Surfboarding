@@ -1,8 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://ctfs7hyi42dbr"]
+[gd_scene load_steps=4 format=3 uid="uid://ctfs7hyi42dbr"]
 
+[ext_resource type="Script" uid="uid://dk21fvet7ondb" path="res://map_1.gd" id="1_1q0j8"]
 [ext_resource type="PackedScene" uid="uid://flag5hqq2gwm" path="res://player.tscn" id="1_thia8"]
+[ext_resource type="PackedScene" uid="uid://ewotjxcw6hdc" path="res://Scenes/cave_tile_map.tscn" id="2_lolil"]
 
 [node name="Map1" type="Node2D"]
+script = ExtResource("1_1q0j8")
+
+[node name="Cave1" parent="." instance=ExtResource("2_lolil")]
+position = Vector2(0, -1)
+
+[node name="Cave2" parent="." instance=ExtResource("2_lolil")]
+position = Vector2(416, -1)
+
+[node name="Cave3" parent="." instance=ExtResource("2_lolil")]
+position = Vector2(832, -1)
 
 [node name="Player" parent="." instance=ExtResource("1_thia8")]
-position = Vector2(137, 131)
+position = Vector2(63, 137)

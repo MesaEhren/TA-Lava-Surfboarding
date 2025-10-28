@@ -12,15 +12,18 @@ config_version=5
 
 config/name="Lava Surfboarding"
 run/main_scene="uid://ctfs7hyi42dbr"
-config/features=PackedStringArray("4.4", "Forward Plus")
+config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=640
-window/size/viewport_height=480
+window/size/viewport_width=360
+window/size/viewport_height=240
 window/stretch/mode="viewport"
-window/stretch/aspect="expand"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/smooth_pixel_subviewport_container/plugin.cfg")
 
 [rendering]
 
