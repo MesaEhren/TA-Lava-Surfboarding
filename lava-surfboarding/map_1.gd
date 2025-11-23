@@ -1,7 +1,6 @@
 extends Node2D
 
-var speed: float = 600
-
+var speed: float = 140
 
 var reset_position
 var left_side_boundary: int = -360
@@ -9,6 +8,7 @@ var left_side_boundary: int = -360
 func _ready() -> void:
 	reset_position = Vector2($Cave3.position)
 	#print(reset_position)
+
 
 func _process(delta: float) -> void:
 	$Cave3.position.x -= speed * delta

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ctfs7hyi42dbr"]
 
 [ext_resource type="Script" uid="uid://dk21fvet7ondb" path="res://map_1.gd" id="1_1q0j8"]
-[ext_resource type="PackedScene" uid="uid://flag5hqq2gwm" path="res://player.tscn" id="1_thia8"]
+[ext_resource type="PackedScene" uid="uid://flag5hqq2gwm" path="res://Scenes/player/player.tscn" id="1_thia8"]
 [ext_resource type="PackedScene" uid="uid://ewotjxcw6hdc" path="res://Scenes/cave_tile_map.tscn" id="2_lolil"]
 
 [node name="Map1" type="Node2D"]
@@ -17,4 +17,18 @@ position = Vector2(416, -1)
 position = Vector2(832, -1)
 
 [node name="Player" parent="." instance=ExtResource("1_thia8")]
-position = Vector2(63, 137)
+position = Vector2(60, 185)
+
+[node name="LanesFolder" type="Node2D" parent="."]
+
+[node name="Lane1" type="Marker2D" parent="LanesFolder"]
+position = Vector2(60, 95)
+
+[node name="Lane2" type="Marker2D" parent="LanesFolder"]
+position = Vector2(60, 125)
+
+[node name="Lane3" type="Marker2D" parent="LanesFolder"]
+position = Vector2(60, 155)
+
+[node name="Lane4" type="Marker2D" parent="LanesFolder"]
+position = Vector2(60, 185)

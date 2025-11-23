@@ -1,0 +1,162 @@
+[gd_scene load_steps=12 format=3 uid="uid://flag5hqq2gwm"]
+
+[ext_resource type="Script" uid="uid://dr5ogkxekx7ng" path="res://Scenes/player/player.gd" id="1_mxepk"]
+[ext_resource type="Texture2D" uid="uid://dw4wm5fssnecm" path="res://assets/Char/char_takua_shadow.png" id="1_onrkg"]
+[ext_resource type="Texture2D" uid="uid://coyvos2qf241h" path="res://assets/Char/char_takua.png" id="2_i3pqv"]
+
+[sub_resource type="Animation" id="Animation_i3pqv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../SpriteTakua:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../SpriteTakua:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_onrkg"]
+resource_name = "idle"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../SpriteTakua:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_2hs0m"]
+resource_name = "jump"
+length = 1.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../SpriteTakua:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.0333333, 1.2333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [7, 8, 9, 1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../SpriteTakua:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.03333333, 0.46666664, 0.6, 1.0333333, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -14), Vector2(0, -14), Vector2(0, 1), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_hqtel"]
+resource_name = "move_down"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../SpriteTakua:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_sweqy"]
+resource_name = "move_up"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../SpriteTakua:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hqtel"]
+_data = {
+&"RESET": SubResource("Animation_i3pqv"),
+&"idle": SubResource("Animation_onrkg"),
+&"jump": SubResource("Animation_2hs0m"),
+&"move_down": SubResource("Animation_hqtel"),
+&"move_up": SubResource("Animation_sweqy")
+}
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_sweqy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eo61r"]
+size = Vector2(10.5, 7.625)
+
+[node name="Player" type="CharacterBody2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_mxepk")
+
+[node name="CharTakuaShadow" type="Sprite2D" parent="."]
+texture = ExtResource("1_onrkg")
+
+[node name="SpriteTakua" type="Sprite2D" parent="."]
+texture = ExtResource("2_i3pqv")
+hframes = 7
+vframes = 7
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../AnimationTree")
+libraries = {
+&"": SubResource("AnimationLibrary_hqtel")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_sweqy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.75, 1.8125)
+shape = SubResource("RectangleShape2D_eo61r")
+
+[node name="LanesFolder" type="Node2D" parent="."]
+
+[node name="Lane1" type="Marker2D" parent="LanesFolder"]
+position = Vector2(60, 95)
+
+[node name="Lane2" type="Marker2D" parent="LanesFolder"]
+position = Vector2(60, 125)
+
+[node name="Lane3" type="Marker2D" parent="LanesFolder"]
+position = Vector2(60, 155)
+
+[node name="Lane4" type="Marker2D" parent="LanesFolder"]
+position = Vector2(60, 185)
